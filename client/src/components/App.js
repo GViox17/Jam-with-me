@@ -7,7 +7,7 @@ import Signup from "./Signup";
 import MusicianListContainer from "./MusicianListContainer";
 import NavBar from "./NavBar";
 import UserProfile from "./UserProfile";
-import NewInstrumentForm from "./NewInstrumentForm";
+// import NewInstrumentForm from "./NewInstrumentForm";
 import MusicianDetails from "./MusicianDetails";
 
 
@@ -15,7 +15,7 @@ import MusicianDetails from "./MusicianDetails";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   // const [user, setUser] = useState()
-  const [instrument, setInstrument] = useState()
+  // const [instruments, setInstruments] = useState()
 
   useEffect(() => {
     fetch('/api/me')
@@ -26,17 +26,23 @@ function App() {
     })
   }, [])
 
+//  if(!currentUser) {
+//     return (
+//       <>
+//         <Login setCurrentUser={setCurrentUser} />
+//       </>
+//     )
+//   }
 
+  // useEffect(()=> {
+  //   fetch('/api/instruments')
+  //   .then(response => response.json())
+  //   .then(data => setInstruments(data))
+  // }, []);
 
-  useEffect(()=> {
-    fetch('/api/instruments')
-    .then(response => response.json())
-    .then(data => setInstrument(data))
-  }, []);
-
-  function handleInstrumentAddition (newInstrument) {
-    setInstrument([...instrument, newInstrument]);
-  }
+  // function handleInstrumentAddition (newInstrument) {
+  //   setInstruments([...instruments, newInstrument]);
+  // }
 
   return (
     <div>
@@ -44,7 +50,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />}/>
 
-        <Route exact path="/musicians" element={<MusicianListContainer currentUser={currentUser} />}/>
+        <Route exact path="/musicians" element={<MusicianListContainer currentUser={currentUser}/>}/>
   
         <Route exact path="/login" element={<Login setCurrentUser={setCurrentUser} />}/>
 
@@ -52,11 +58,11 @@ function App() {
 
         <Route exact path="/user_profile" element={<UserProfile currentUser={currentUser} />}/>
 
-        <Route exact path="/musicians/id" element={<MusicianDetails currentUser={currentUser}/>} />
+        <Route exact path="/musicians/:id" element={<MusicianDetails currentUser={currentUser}/>} />
     
         <Route exact path="/instruments/id" element={<Instruments currentUser={currentUser} />}/>
 
-        <Route exact path="/instruments/new" element={<NewInstrumentForm onInstrumentAddition={handleInstrumentAddition} currentUser={currentUser}/>} />
+        {/* <Route exact path="/instruments/new" element={<NewInstrumentForm onInstrumentAddition={handleInstrumentAddition} currentUser={currentUser}/>} /> */}
        
 
     </Routes>

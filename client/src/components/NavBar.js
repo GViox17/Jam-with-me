@@ -2,17 +2,19 @@ import React from 'react'
 import {useNavigate, NavLink} from 'react-router-dom'
 
 const linkStyles = {
-    padding: "10px 15px 10px 15px",
+    padding: "15px 20px 15px 20px",
     margin: "10px 10px 10px 10px",
     textDecoration: "none",
-    color: "white",
+    color: "black",
     justifyContent: "center",
     textAlign: "center",
     borderRadius: "0px 17px 0px 17px",
+    border: "black",
+    
   };
 
 function NavBar({currentUser, setCurrentUser}) {
-    const navigate = useNavigate();
+    const navigate = useNavigate(null);
 
     function handleLogout () {
         // fetch DELETE session#destroy
@@ -36,7 +38,7 @@ function NavBar({currentUser, setCurrentUser}) {
             activeStyle={{
                 cursor: 'pointer',
                 hover: {
-                    color: '#FF0000'
+                    color: '#00fa9a'
                 }
             }}
             >Home</NavLink>
@@ -52,7 +54,7 @@ function NavBar({currentUser, setCurrentUser}) {
             activeStyle={{
                 cursor: 'pointer',
                 hover: {
-                    color: '#FF0000'
+                    color: '#00fa9a'
                 }
             }}
             >Login</NavLink>
@@ -65,7 +67,7 @@ function NavBar({currentUser, setCurrentUser}) {
             activeStyle={{
                 cursor: 'pointer',
                 hover: {
-                    color: '#FF0000'
+                    color: '#00fa9a'
                 }
             }}
             >Signup</NavLink>
@@ -82,7 +84,7 @@ function NavBar({currentUser, setCurrentUser}) {
             activeStyle={{
                 cursor: 'pointer',
                 hover: {
-                    color: '#FF0000'
+                    color: '#00fa9a'
                 }
             }}
             >Profile</NavLink>
@@ -95,12 +97,12 @@ function NavBar({currentUser, setCurrentUser}) {
             activeStyle={{
                 cursor: 'pointer',
                 hover: {
-                    color: '#FF0000'
+                    color: '#00fa9a'
                 }
             }}
             >Musician List</NavLink>
 
-            <NavLink
+            {/* <NavLink
             to='instruments'
             exact
             style={linkStyles}
@@ -111,7 +113,7 @@ function NavBar({currentUser, setCurrentUser}) {
                     color: '#FF0000'
                 }
             }}
-            >Instrument List</NavLink>
+            >Instrument List</NavLink> */}
             
             <NavLink
             to='/'
@@ -125,7 +127,7 @@ function NavBar({currentUser, setCurrentUser}) {
             >Logout</NavLink>
 
              <div className="welcome-name">
-                <h2>Welcome, {currentUser.username}!</h2>
+                {/* <h2>Welcome, {currentUser.username}!</h2> */}
             </div>
 
             </>

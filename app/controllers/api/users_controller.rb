@@ -7,16 +7,18 @@ class Api::UsersController < ApplicationController
     # GET /me
     def show
         current_user = User.find_by(id: session[:user_id])
-        if current_user
+        current_user
             render json: current_user, status: :ok
-        else
-            render json: {error: "please log in"}, status: :unauthorized
-        end
+        # else
+        #     render json: {error: "Not currently Logged in"}, status: :unauthorized
+        # end
     end
 
     # POST /signup
     def create
-        user = User.create(user_params)
+        user = User.create!(user_params)
+        instruments = Instrument.find_or_create_by(name: params[:instruments])
+        user.instruments << instruments
         if user.valid?
             session[:user_id] ||= user.id
             render json: user, status: :created
@@ -26,7 +28,7 @@ class Api::UsersController < ApplicationController
     end
 
     def update 
-        user = User.find(params[:id])
+        user = User.find_by(params[:id])
         user.update(user_params)
         render json: user, status: :ok
     end
@@ -40,7 +42,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(
+        params.require(:user).permit(
           :first_name,
           :last_name,
           :username,
@@ -48,8 +50,8 @@ class Api::UsersController < ApplicationController
           :password,
           :password_confirmation,
           :image_url,
-          :instrument,
-          :user
+          :instruments
+         
         )
     end
     

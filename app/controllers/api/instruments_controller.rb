@@ -2,10 +2,15 @@ class Api::InstrumentsController < ApplicationController
     # before_action :authorize
 
     def index
-        instrument = Instrument.all
-        render json: instrument
+        instruments = Instrument.all
+        render json: instruments
     end
 
+    # def show
+    #     current_instrument = Instrument.find_by(:id session[:instrument_id])
+    #         current_instrument
+    #         render json: current_instrument, status: :ok
+    # end
     def create
         new_instrument = Instrument.new(instrument_params)
         if new_instrument.save

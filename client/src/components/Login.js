@@ -33,7 +33,7 @@ function Login({setCurrentUser}) {
                     setCurrentUser(user)
                     console.log('after successful post login', user)
                     // redirect to home page
-                    navigate('/user_profile')
+                    navigate('/')
                 });
             } 
     //         else {

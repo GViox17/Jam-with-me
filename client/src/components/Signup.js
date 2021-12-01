@@ -9,11 +9,13 @@ function Signup({setCurrentUser}) {
         first_name: "",
         last_name: "",
         location: "",
-        instrument: "",
+        instruments: "",
         username: "",
         password: "",
         password_confirmation: "",
         image_url: ""
+        // bio: ""
+
     });
 
     function handleChange (event) {
@@ -66,8 +68,8 @@ function Signup({setCurrentUser}) {
                 <label>Location (City, State)</label>
                 <input type="text" name="location" onChange={handleChange} value={formData.location} /> <br/>
 
-                <label>Instrument (Add more later)</label>
-                <input type="text" name="instrument" onChange={handleChange} value={formData.instrument} /> <br/>
+                <label>Instrument</label>
+                <input type="text" name="instruments" onChange={handleChange} value={formData.instruments.name} /> <br/>
 
                 <label>Profile Picture (Image URL)</label>
                 <input type="text" name="image_url" onChange={handleChange} value={formData.image_url} /> <br/>
@@ -80,6 +82,9 @@ function Signup({setCurrentUser}) {
 
                 <label>Re-Enter Password</label>
                 <input type="password" name="password_confirmation" onChange={handleChange} value={formData.password_confirmation} /> <br/>
+
+                {/* <label>Add Bio/ Music links here!</label>
+                <input type="text" name="bio" placeholder="bio" rows={5} value={formData.bio}onChange={handleChange}/> */}
 
                 <input type="submit"/>
             </form>
