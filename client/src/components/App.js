@@ -60,7 +60,7 @@ function App() {
 
         <Route exact path="/musicians/:id" element={<MusicianDetails currentUser={currentUser}/>} />
     
-        <Route exact path="/instruments/id" element={<Instruments currentUser={currentUser} />}/>
+        <Route exact path="/instruments/:id" element={<Instruments currentUser={currentUser} />}/>
 
         {/* <Route exact path="/instruments/new" element={<NewInstrumentForm onInstrumentAddition={handleInstrumentAddition} currentUser={currentUser}/>} /> */}
        

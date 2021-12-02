@@ -1,13 +1,13 @@
-// import React from 'react'
-// // import {NavLink} from 'react-router-dom';
+import React from 'react'
+// import {NavLink} from 'react-router-dom';
 
 
-// function Instruments() {
-//     return (
-//         <div>
+function Instruments() {
+    return (
+        <div>
             
-//         </div>
-//     )
-// }
+        </div>
+    )
+}
 
-// export default Instruments
+export default Instruments
