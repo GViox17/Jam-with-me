@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import MusicianCard from './MusicianCard'
-// import NewInstrumentForm from './NewInstrumentForm';
 import SearchBar from "./SearchBar";
 
 
-function MusicianListContainer({}) {
+function MusicianListContainer() {
     const [users ,setUsers] = useState([]);
     const [searchForm, setSearchForm] = useState('');
-    // const [filteredCategory, setFilteredCategory] = useState("All");
 
     useEffect(() => {
         fetch("/api/users")
@@ -19,20 +17,16 @@ function MusicianListContainer({}) {
     function handleChange(event) {
             setSearchForm(event.target.value);
         }
-
-    function renderMusicianCards () {
-        
+    function renderMusicianCards () {  
         return (
-            // users.filter((user) => {return user.instruments.name.toLowerCase().includes(searchForm.toLowerCase())
-            // }).
-            users.map(user => {
-                // const musician_id = user.find()
-        return ( <MusicianCard
+            users
+            .filter((user) =>  user.instruments.some(instrument => instrument.name.toLowerCase().includes(searchForm.toLowerCase())))
+            .map(user => 
+             <MusicianCard
             key={user.id} 
             user={user}
             />
-        )
-        }))
+        ))
     }
 
 
@@ -44,7 +38,6 @@ function MusicianListContainer({}) {
             <SearchBar handleChange={handleChange} searchForm={searchForm}/>
         </div>
         <div className="card-container">
-            {/* <NewInstrumentForm currentUser={currentUser} /> */}
              {renderMusicianCards()}
              
         </div>

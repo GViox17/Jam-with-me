@@ -1,5 +1,7 @@
 import React from 'react'
+import 'react-slideshow-image/dist/styles.css'
 // import { Routes } from 'react-router'
+
 
 function Home() {
     return (

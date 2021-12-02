@@ -99,6 +99,9 @@ code {
     white 100%
   );
 }
+.user-profile-container button{
+  padding: 5px;
+}
 .heading h1{
   text-align: center;
 }

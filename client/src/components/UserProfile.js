@@ -26,7 +26,10 @@ function UserProfile({currentUser}) {
             <h3>Last Name: {currentUser.last_name}</h3> <br />
             <h3>Location: {currentUser.location}</h3> <br />
             <h3>Instruments: {currentUser.instruments}</h3> <br />
-            {/* <h3>Bio: {currentUser.bio}</h3> */}
+            <h3>Bio: {currentUser.bio}</h3>
+            <button>Edit bio</button> <br />
+            <h4>Delete Profile</h4> 
+            <button>Delete profile</button>
         </div>
     </>
     )

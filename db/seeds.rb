@@ -21,7 +21,7 @@ puts '🌱 Seeding instruments...'
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.unique.last_name,
         username: Faker::Games::Pokemon.unique.name,
-        image_url: Faker::LoremFlickr.image(size: "#{rand(250..300)}x#{rand(250..300)}", search_terms: ['cat']),
+        image_url: Faker::LoremFlickr.image(size: "#{rand(250..300)}x#{rand(250..300)}", search_terms: ['Artist']),
         location: "#{Faker::Address.city}, #{Faker::Address.state}",
         password: "password",
         # bio: Faker::Movies::StarWars.quote

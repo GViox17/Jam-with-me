@@ -5,9 +5,9 @@ class Api::SessionsController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:username] = user.username
-            render json: user, status: :created
-        else
-            render json: {errors: ['Invalid username or password.'] }, status: :unauthorized
+            render json: user, status: :created 
+        # else
+        #     render json: {errors: ['Invalid username or password.'] }, status: :unauthorized
         end
     end
         # DELETE /logout route

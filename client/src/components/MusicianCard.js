@@ -22,7 +22,7 @@ function renderInstruments () {
             <h3>{user.location}</h3> <br />
             {renderInstruments()}
             
-            <NavLink to={`/musicians/${user.id}`} element={<MusicianDetails user={user} />}>Find out more</NavLink>
+            <NavLink to={`/musicians/${user.id}`} element={<MusicianDetails user={user} key={user.id} />}>Find out more</NavLink>
            
             
         </div>

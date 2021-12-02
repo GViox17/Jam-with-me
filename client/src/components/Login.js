@@ -16,10 +16,9 @@ function Login({setCurrentUser}) {
         })
     }
 
-    // sends to sessionscontroller #create method
+
     function handleSubmit (event) {
         event.preventDefault();
-        console.log('inside handlesubmit function, before fetch post', loginFormData)
 
         fetch('/api/login', {
             method: 'POST',
@@ -58,45 +57,10 @@ function Login({setCurrentUser}) {
                 <input type='submit' />
             </form>
 
-            {/* {!errors ? 
-            <div>
-                <Wrapper>
-                    <Alert>!</Alert>
-                    <Message>{errors}</Message>
-                </Wrapper>
-            </div>
-            : null
-            }    */}
+
         </div>
     )
 }
-
-// const Wrapper = styled.div`
-//     color: red;
-//     background-color: mistyrose;
-//     border-radius: 6px;
-//     display: flex;
-//     padding: 8px;
-//     align-items: center;
-//     gap: 8px;
-//     margin: 8px 0;
-//     justify-content: center;
-// `;
-
-// const Alert = styled.div`
-//     background-color: white;
-//     height: 30px;
-//     width: 30px;
-//     border-radius: 50%;
-//     font-weight: bold;
-//     display: grid;
-//     place-content: center;
-// `;
-
-// const Message = styled.p`
-//     margin: 0;
-// `
-;
 
 
 export default Login

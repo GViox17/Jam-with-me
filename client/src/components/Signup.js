@@ -26,7 +26,6 @@ function Signup({setCurrentUser}) {
 
     function handleSubmit (event) {
         event.preventDefault();
-        console.log('inside handlesubmit, prior to actually fetch posting', formData);
 
         fetch('/api/signup', {
             method: 'POST',
@@ -89,49 +88,9 @@ function Signup({setCurrentUser}) {
                 <input type="submit"/>
             </form>
 
-            {/* {!errors ?
-                errors.map(error => {
-                    return (
-                        <div>
-                            <Wrapper>
-                                <Alert>!</Alert>
-                                <Message>
-                                    {error}
-                                </Message>
-                            </Wrapper>
-                        </div>
-                    );
-                })
-                : null
-            } */}
         </div>
     )
 }
 
-// const Wrapper = styled.div`
-//     color: red;
-//     background-color: mistyrose;
-//     border-radius: 6px;
-//     display: flex;
-//     padding: 8px;
-//     align-items: center;
-//     gap: 8px;
-//     margin: 8px 0;
-//     justify-content: center;
-// `;
-
-// const Alert = styled.div`
-//     background-color: white;
-//     height: 30px;
-//     width: 30px;
-//     border-radius: 50%;
-//     font-weight: bold;
-//     display: grid;
-//     place-content: center;
-// `;
-
-// const Message = styled.p`
-//     margin: 0;
-// `;
 
 export default Signup
