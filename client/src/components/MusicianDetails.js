@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-function MusicianDetails({user}) {
+function MusicianDetails() {
     const [selectedMusician, setSelectedMusician] = useState(null);
     const params = useParams();
     
 
-    useEffect( () => {
-        fetch(`api/musicians/${params.id}`)
+    useEffect(() => {
+        fetch(`api/users/${params.id}`)
         .then(response => response.json())
         .then(data => setSelectedMusician(data))
     }, ([params.id]))
@@ -18,7 +18,11 @@ function MusicianDetails({user}) {
 
     return (
         <div className="musician-details">
-            <h1>{selectedMusician.user.username}</h1>
+            <img src={selectedMusician.image} alt={selectedMusician.name}/>
+            <h1>{selectedMusician.name}</h1>
+            <p>About {selectedMusician.name}</p>
+
+            
         </div>
     )
 }

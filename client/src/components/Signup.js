@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
-// import styled from 'styled-components';
 
 function Signup({setCurrentUser}) {
-    // const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
+    // const [password,setPassword] = useState('');
+    // const [password_confirmation, setPassword_Confirmation] = useState('');
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -14,8 +14,6 @@ function Signup({setCurrentUser}) {
         password: "",
         password_confirmation: "",
         image_url: ""
-        // bio: ""
-
     });
 
     function handleChange (event) {
@@ -24,36 +22,30 @@ function Signup({setCurrentUser}) {
         })
     }
 
-    function handleSubmit (event) {
-        event.preventDefault();
+function handleSubmit (event) {
+    event.preventDefault();
+    // let formInfo = {
+    //     ...formData
+    // }
+    // formInfo.password = password
+    // formInfo.password_confirmation = password_confirmation
 
-        fetch('/api/signup', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
+    fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+        "Content-Type": "application/json"
+        },
             body: JSON.stringify(formData)
         })
-        .then(response => 
-            
-                response.json()).then(data => {
-                    console.log('data response after fetch post!', data)
-                    setCurrentUser(data)
-                    navigate('/user_profile')
+        .then(response => response.json())
+        .then(data => {setCurrentUser(data)
+                    navigate('/')
                 })
+                
             } 
-    //         else {
-    //             response.json().then(errors => {
-    //                 console.log(errors)
-    //                 setErrors(errors.errors)
-    //             })
-    //         }
-    //     })
-    // }
 
     return (
         <div>
-            
                 <form className="signup-form" onSubmit={handleSubmit}>
 
                 <h3>Welcome Young Musician!</h3>
@@ -82,15 +74,10 @@ function Signup({setCurrentUser}) {
                 <label>Re-Enter Password</label>
                 <input type="password" name="password_confirmation" onChange={handleChange} value={formData.password_confirmation} /> <br/>
 
-                {/* <label>Add Bio/ Music links here!</label>
-                <input type="text" name="bio" placeholder="bio" rows={5} value={formData.bio}onChange={handleChange}/> */}
-
                 <input type="submit"/>
             </form>
-
         </div>
     )
 }
-
 
 export default Signup
