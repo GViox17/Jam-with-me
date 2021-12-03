@@ -14,10 +14,13 @@ import MusicianDetails from "./MusicianDetails";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+
+  // const [loggedIn, setLoggedIn] = useState(false)
   // const [user, setUser] = useState()
   // const [instruments, setInstruments] = useState()
 
   useEffect(() => {
+    console.log("TEST");
     fetch('/api/me')
     .then(response => {
       if(response.ok) {

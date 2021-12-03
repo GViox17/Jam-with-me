@@ -26,7 +26,7 @@ function Login({setCurrentUser}) {
         .then(response => 
                 response.json()).then(user => {
                     setCurrentUser(user)
-                    navigate('/user_profile')
+                    navigate('/')
                 });
             } 
     //         else {

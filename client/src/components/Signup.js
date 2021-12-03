@@ -3,16 +3,16 @@ import {useNavigate} from 'react-router-dom';
 
 function Signup({setCurrentUser}) {
     const navigate = useNavigate();
-    const [password,setPassword] = useState('');
-    const [password_confirmation, setPassword_Confirmation] = useState('');
+    // const [password,setPassword] = useState('');
+    // const [password_confirmation, setPassword_Confirmation] = useState('');
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
         location: "",
         instruments: "",
         username: "",
-        // password: "",
-        // password_confirmation: "",
+        password: "",
+        password_confirmation: "",
         image_url: ""
     });
 
@@ -24,22 +24,22 @@ function Signup({setCurrentUser}) {
 
 function handleSubmit (event) {
     event.preventDefault();
-    let formInfo = {
-        ...formData
-    }
-    formInfo.password = password
-    formInfo.password_confirmation = password_confirmation
+    // let formInfo = {
+    //     ...formData
+    // }
+    // formInfo.password = password
+    // formInfo.password_confirmation = password_confirmation
 
     fetch('/api/signup', {
         method: 'POST',
         headers: {
         "Content-Type": "application/json"
         },
-            body: JSON.stringify(formInfo)
+            body: JSON.stringify(formData)
         })
         .then(response => response.json())
         .then(data => {setCurrentUser(data)
-                    navigate('/user_profile')
+                    navigate('/')
                 })
                 
             } 
@@ -69,10 +69,10 @@ function handleSubmit (event) {
                 <input type="text" name="username" onChange={handleChange} value={formData.username} /> <br/>
 
                 <label>Password</label>
-                <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} /> <br/>
+                <input type="password" name="password" onChange={handleChange} value={formData.password} /> <br/>
 
                 <label>Re-Enter Password</label>
-                <input type="password" name="password_confirmation" onChange={(e) => setPassword_Confirmation(e.target.value)} value={password_confirmation} /> <br/>
+                <input type="password" name="password_confirmation" onChange={handleChange} value={formData.password_confirmation} /> <br/>
 
                 <input type="submit"/>
             </form>

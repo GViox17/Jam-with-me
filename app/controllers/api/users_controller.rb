@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
 
     # POST /signup
     def create
+        # byebug
         user = User.create(user_params)
         if user.valid?
             instruments = Instrument.find_or_create_by(name: params[:instruments])
@@ -39,8 +40,8 @@ class Api::UsersController < ApplicationController
           :location,
           :password,
           :password_confirmation,
-          :image_url,
-          :instruments
+          :image_url
+        #   :instruments
         #   :user
          
         )
