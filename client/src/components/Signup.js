@@ -3,8 +3,6 @@ import {useNavigate} from 'react-router-dom';
 
 function Signup({setCurrentUser}) {
     const navigate = useNavigate();
-    // const [password,setPassword] = useState('');
-    // const [password_confirmation, setPassword_Confirmation] = useState('');
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -24,11 +22,6 @@ function Signup({setCurrentUser}) {
 
 function handleSubmit (event) {
     event.preventDefault();
-    // let formInfo = {
-    //     ...formData
-    // }
-    // formInfo.password = password
-    // formInfo.password_confirmation = password_confirmation
 
     fetch('/api/signup', {
         method: 'POST',
@@ -37,18 +30,26 @@ function handleSubmit (event) {
         },
             body: JSON.stringify(formData)
         })
-        .then(response => response.json())
-        .then(data => {setCurrentUser(data)
+        .then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    setCurrentUser(data)
                     navigate('/')
                 })
-                
+            } else {
+                response.json().then(error => {
+                    console.log(error)
+                    alert(error.errors)
+                })
+            }
+        })
             } 
 
     return (
         <div>
                 <form className="signup-form" onSubmit={handleSubmit}>
 
-                <h3>Welcome Young Musician!</h3>
+                <h3>Welcome Young Musician!🎵🎵</h3>
 
                 <label>First Name</label>
                 <input type="text" name="first_name" onChange={handleChange} value={formData.first_name} /> <br/>

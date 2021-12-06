@@ -30,6 +30,7 @@ function NavBar({currentUser, setCurrentUser}) {
     }
     return (
         <div className="nav-bar">
+            <h1>🎼🎶</h1>
             <NavLink
             to='/'
             exact

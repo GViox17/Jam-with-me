@@ -23,24 +23,23 @@ function Login({setCurrentUser}) {
             },
             body: JSON.stringify(loginFormData)
         })
-        .then(response => 
-                response.json()).then(user => {
+        .then(response => {
+            if (response.ok) {
+                response.json().then(user => {
                     setCurrentUser(user)
                     navigate('/')
-                });
-            } 
-    //         else {
-    //             response.json().then(error => {
-    //                 setErrors(error.errors)
-    //             })
-    //         }
-    //     });
-    // }
-    
+                })
+            } else {
+                response.json().then(error => {
+                    alert(error.errors)
+                })
+            }
+        });
+ } 
     return (
         <div>
              <form onSubmit={handleSubmit} className='login-form'>
-                <h3>Welcome Back Local Musician!</h3>
+                <h3>Welcome Back Local Musician!🎹</h3>
                 <label>Username</label>
                 <input type='text' name="username" value={loginFormData.username} onChange={handleChange} /> <br />
                 <label>Password</label>

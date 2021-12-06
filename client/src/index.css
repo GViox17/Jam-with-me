@@ -15,7 +15,7 @@ code {
 
 .nav-bar{
   position: relative;
-  /* justify-content: ; */
+  justify-content: center;
   align-items: center;
   display: flex;
   animation: forwards;
@@ -26,6 +26,7 @@ code {
   text-align: center;
   font-size: 15px;
   border-color: black;
+  border-radius: 100%;
   
 }
 
