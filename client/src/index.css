@@ -128,11 +128,7 @@ code {
 }
 
 .musician-card{
-  display: flex;
-  flex-direction: row;
-  text-align: right;
-  justify-content: space space-evenly; 
-  align-items: center;
+  width: 30%;
   position: relative;
   border-radius: 15px;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
@@ -148,9 +144,19 @@ code {
 }
 
 .musician-card img{
+    float:left;
     height: 215px;
     width: 215px;
     padding: 10px
+  }
+  .musician-card .card-text{
+    margin-left: 25px;
+  }
+  .musician-card .card-text h2, .musician-card .card-text h3, .musician-card .card-text h4 {
+    margin: 0;
+  }
+  .musician-card .card-text button{
+    margin-top: 15px;
   }
 
   .searchbar{
@@ -183,4 +189,7 @@ code {
   margin-left: 15%;
   width: 70%;
   background-color:#f5deb3;
+}
+.hidden{
+  display: none;
 }

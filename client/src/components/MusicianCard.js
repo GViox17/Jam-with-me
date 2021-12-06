@@ -1,12 +1,6 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import MusicianDetails from './MusicianDetails';
-// import MusicianDetails from './MusicianDetails';
 
 function MusicianCard({user}) {
-
-    // Add Musician Likes for Patch??
-
     
 function renderInstruments () {
     return user.instruments.map(instrument => {
@@ -15,15 +9,25 @@ function renderInstruments () {
         )
     })
 }
+function showMore (e) {
+    e.preventDefault()
+    let musicianCard = document.getElementById(user.username)
+    musicianCard.classList.toggle("hidden")
+
+}
     return (
         <div className="musician-card">
             <img src={user.image_url} alt={user.username}/> <br />
+            <div className="card-text">   
             <h2>{user.username}</h2><br />
             <h3>{user.location}</h3> <br />
             {renderInstruments()}
-            
-            <NavLink to={`/musicians/${user.id}`} element={<MusicianDetails user={user} key={user.id} />}>Find out more</NavLink>
-           
+            <button onClick={showMore}>Find out more</button>
+
+           <div className="hidden" id={user.username}>
+            <h6>{user.first_name}</h6>
+           </div>
+            </div>
             
         </div>
     )

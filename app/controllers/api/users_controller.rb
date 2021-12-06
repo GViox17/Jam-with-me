@@ -40,7 +40,8 @@ class Api::UsersController < ApplicationController
           :location,
           :password,
           :password_confirmation,
-          :image_url
+          :image_url,
+          :bio
         #   :instruments
         #   :user
          
