@@ -7,17 +7,12 @@ import Signup from "./Signup";
 import MusicianListContainer from "./MusicianListContainer";
 import NavBar from "./NavBar";
 import UserProfile from "./UserProfile";
-// import NewInstrumentForm from "./NewInstrumentForm";
 import MusicianDetails from "./MusicianDetails";
 
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-
-  // const [loggedIn, setLoggedIn] = useState(false)
-  // const [user, setUser] = useState()
-  // const [instruments, setInstruments] = useState()
 
   useEffect(() => {
     console.log("TEST");
@@ -29,23 +24,7 @@ function App() {
     })
   }, [])
 
-//  if(!currentUser) {
-//     return (
-//       <>
-//         <Login setCurrentUser={setCurrentUser} />
-//       </>
-//     )
-//   }
 
-  // useEffect(()=> {
-  //   fetch('/api/instruments')
-  //   .then(response => response.json())
-  //   .then(data => setInstruments(data))
-  // }, []);
-
-  // function handleInstrumentAddition (newInstrument) {
-  //   setInstruments([...instruments, newInstrument]);
-  // }
 
   return (
     <div>
@@ -64,9 +43,6 @@ function App() {
         <Route exact path="/musicians/:id" element={<MusicianDetails currentUser={currentUser}/>} />
     
         <Route exact path="/instruments/:id" element={<Instruments currentUser={currentUser} />}/>
-
-        {/* <Route exact path="/instruments/new" element={<NewInstrumentForm onInstrumentAddition={handleInstrumentAddition} currentUser={currentUser}/>} /> */}
-       
 
     </Routes>
     </div>

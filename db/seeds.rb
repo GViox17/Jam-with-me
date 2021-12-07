@@ -18,7 +18,7 @@ puts '🌱 Seeding instruments...'
 #create 10 random users
 
 
-10.times do 
+30.times do 
     user= User.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.unique.last_name,
@@ -31,7 +31,7 @@ puts '🌱 Seeding instruments...'
 end
 
 #create 10 random instruments
-10.times do 
+30.times do 
 
     instrument = Instrument.create(
         name: Faker::Music.instrument
@@ -41,7 +41,7 @@ end
 
 
 count = 1
-10.times do
+30.times do
     MusicianInstrument.create(
         user_id: count, 
         instrument_id: count

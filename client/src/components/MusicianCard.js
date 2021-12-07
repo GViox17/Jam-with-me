@@ -25,7 +25,8 @@ function showMore (e) {
             <button onClick={showMore}>Find out more</button>
 
            <div className="hidden" id={user.username}>
-            <h6>{user.first_name}</h6>
+            <h5>{user.first_name} {user.last_name}</h5>
+            <h5>{user.bio}</h5>
            </div>
             </div>
             

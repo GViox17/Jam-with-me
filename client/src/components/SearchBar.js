@@ -1,5 +1,4 @@
 import React from 'react'
-// searchForm, handleChange
 function SearchBar({searchForm, handleChange}) {
     return (
         <div className="searchbar">

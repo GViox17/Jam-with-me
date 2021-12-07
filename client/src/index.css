@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Times New Roman;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #e9ffdb;
@@ -106,6 +104,12 @@ code {
   margin-left: 25px;
 
 }
+.user-profile-container img{
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  margin-left: 25%;
+}
 .user-profile-container button{
   padding: 5px;
   width: 130px;
@@ -140,13 +144,13 @@ code {
     #98fb98 75%,
     white 100%
   );
-  margin: 15px;
+  margin: 20px;
 }
 
 .musician-card img{
     float:left;
-    height: 215px;
-    width: 215px;
+    height: 200px;
+    width: 200px;
     padding: 10px
   }
   .musician-card .card-text{

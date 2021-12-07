@@ -7,7 +7,7 @@ function UserProfile({currentUser}) {
     console.log(currentUser)
 
 
-    const instrumentsList = currentUser?.instruments.map(instrument => <h6>{instrument.name}</h6>)
+    const instrumentsList = currentUser?.instruments.map(instrument => <h3>{instrument.name}</h3>)
 
     return (
         <>
@@ -16,9 +16,9 @@ function UserProfile({currentUser}) {
             <h3>Username: {currentUser?.username}</h3> <br />
             <h3>Name: {currentUser?.first_name} {currentUser?.last_name}</h3> <br />
             <h3>Location: {currentUser?.location}</h3> <br />
-            <h3>Instrument List</h3> 
+            <h3>Instrument List:</h3> 
             {instrumentsList}
-            <h3>Bio:</h3>
+            <h3>Bio: {currentUser?.bio}</h3>
             <button>Edit bio</button> <br />
             <h3>Delete Profile</h3> 
             <button>Delete profile</button>

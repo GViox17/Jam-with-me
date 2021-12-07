@@ -11,7 +11,8 @@ function Signup({setCurrentUser}) {
         username: "",
         password: "",
         password_confirmation: "",
-        image_url: ""
+        image_url: "",
+        bio: ""
     });
 
     function handleChange (event) {
@@ -74,6 +75,9 @@ function handleSubmit (event) {
 
                 <label>Re-Enter Password</label>
                 <input type="password" name="password_confirmation" onChange={handleChange} value={formData.password_confirmation} /> <br/>
+
+                <label>Bio</label>
+                <textarea type="text" name="bio" rows={8} onChange={handleChange} value={formData.bio} /> <br/>
 
                 <input type="submit"/>
             </form>
