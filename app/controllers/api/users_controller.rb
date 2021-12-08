@@ -16,6 +16,20 @@ class Api::UsersController < ApplicationController
 
     end
 
+    # Update /me
+    def update
+        user = User.find(params[:id])
+        user.update(user_params)
+        render json: user, status: :ok
+    end
+
+    # Delete /me
+    # def destroy
+    #     dog = User.find(params[:id])
+    #     user.destroy
+    #     head :no_content
+    # end
+
     # POST /signup
     def create
         # byebug

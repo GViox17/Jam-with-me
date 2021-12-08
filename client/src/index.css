@@ -153,6 +153,9 @@ code {
     width: 200px;
     padding: 10px
   }
+  .musician-card button{
+    margin-bottom: 10px;
+  }
   .musician-card .card-text{
     margin-left: 25px;
   }
@@ -197,3 +200,10 @@ code {
 .hidden{
   display: none;
 }
+/* .home-page .carousel-inner img{
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
